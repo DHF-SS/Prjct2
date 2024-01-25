@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 (() => {
 	const lockedColor = "#ccc";
 	const unlockedColor = "#def";
@@ -218,3 +219,54 @@
 		}
 	});
 })();
+=======
+window.addEventListener("load", function(){
+
+  // Definieer de vaardigheden
+const skills = {
+    name: 'Root',
+    children: [
+      {
+        name: 'Skill 1',
+        children: [
+          {
+            name: 'Skill 1.1',
+          },
+          {
+            name: 'Skill 1.2',
+          },
+        ],
+      },
+      {
+        name: 'Skill 2',
+        children: [
+          {
+            name: 'Skill 2.1',
+          },
+          {
+            name: 'Skill 2.2',
+          },
+        ],
+      },
+    ],
+  };
+  
+  // Functie om de skill tree weer te geven
+  function displaySkillTree(skill, depth = 0) {
+    const indentation = '  '.repeat(depth);
+    console.log(`${indentation}${skill.name}`);
+  
+    if (skill.children) {
+      skill.children.forEach(child => {
+        displaySkillTree(child, depth + 1);
+      });
+    }
+  }
+  
+  // Toon de skill tree
+  displaySkillTree(skills);
+  
+
+
+});
+>>>>>>> Stashed changes
