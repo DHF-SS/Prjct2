@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skill Tree</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .node {
+      display: inline-block;
+      text-align: center;
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div id="skillTree">
+  <div class="node" onclick="selectNode('HTML')">HTML</div>
+  <div class="node" onclick="selectNode('CSS')">CSS</div>
+  <div class="node" onclick="selectNode('JavaScript')">JavaScript</div>
+  <div class="node" onclick="selectNode('React')">React</div>
+  <div class="node" onclick="selectNode('Node.js')">Node.js</div>
+  <div class="node" onclick="selectNode('MongoDB')">MongoDB</div>
+</div>
+
+<script>
+  let selectedSkill = '';
+
+  function selectNode(skill) {
+    selectedSkill = skill;
+    console.log(`Selected skill: ${selectedSkill}`);
+    // Hier kun je verdere acties ondernemen op basis van het geselecteerde vaardigheidsniveau.
+    // Bijvoorbeeld: toon meer informatie, markeer als voltooid, etc.
+  }
+</script>
+
+</body>
+</html>
