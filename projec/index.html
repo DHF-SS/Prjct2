@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shiven Website</title>
+
+<link rel="stylesheet" href="stylesheet.css"> <link rel="quiz" href="quizzzz.html">
+
+
+</head>
+<body>
+   <div id="header">
+    <img id="background" src="plain-green-wallpaper.webp" alt="">
+    
+
+    <div class="container">
+      <nav>
+        <img src="logo-techniek-college.png" alt="Logo" class="logo">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#about">About me</a></li>
+            <li><a href="#Interview">Interview</a></li>
+            <li><a href="#Projects">Projects</a></li>
+            <li><a href="quizzzz.html">Quizz</a></li>
+           
+        </ul>
+      </nav>
+       <div id="header-text">
+        
+        <script>
+          
+          var countDownDate = new Date("Jan 26, 2024 16:00:00").getTime();
+          
+          
+          var x = setInterval(function() {
+          
+           
+            var now = new Date().getTime();
+              
+            
+            var distance = countDownDate - now;
+              
+            
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+              
+            
+            document.getElementById("header-text").innerHTML = days + "d " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+              
+            
+            if (distance < 0) {
+              clearInterval(x);
+              document.getElementById("header-text").innerHTML = "over datum swa";
+            }
+          }, 1000);
+          </script>
+          
+         
+
+       </div>
+       <h1 class="whath1">tot de open dag <br> <br>
+        Vrijdag 16:00-20:00 en Zaterdag 10:00-14:00 <br>
+        op het TCR bij Alexander
+       </h1>
+    </div>
+</div>
+
+
+</body>
+</html>
