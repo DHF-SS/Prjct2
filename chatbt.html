@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <link rel="stylesheet" href="cb.css">  
+</head>
+<body>
+    <!-- JavaScript voor een groet die elk dagdeel veranderd, deze code heb ik van w3schools aangezien we hier geen uitleg over hebben gekregen -->
+<script>
+    var uur = new Date().getHours();
+    if (uur >= 18)
+        document.write('Goedenavond');
+    else if (uur >= 12)
+        document.write('Goedemiddag');
+    else if (uur >= 6)
+        document.write('Goedemorgen');
+    else
+        document.write('Goedenacht');
+    </script>
+    
+    <!-- Countdown naar een specifieke datum deze heb ik ook van w3 schools en heb ik een andere datum gegeven-->
+    <div id="countdown"></div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Set de doeldatum (26 januari 2024)
+        const targetDate = new Date("January 26, 2024").getTime();
+        
+        // Update de countdown elke seconde
+        setInterval(updateCountdown, 1000);
+        
+        function updateCountdown() {
+            // Haal de huidige datum en tijd op
+            const currentDate = new Date().getTime();
+        
+            // Bereken het tijdsverschil in milliseconden
+            const timeDifference = targetDate - currentDate;
+        
+            // Bereken dagen, uren, minuten en seconden
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+        
+            // Toon de countdown
+            const countdownElement = document.getElementById("countdown");
+            countdownElement.textContent = `De eerstvolgende open dag is op: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+        
+            // Controleer of de doeldatum is bereikt
+            if (timeDifference <= 0) {
+                clearInterval(updateCountdown);
+                countdownElement.textContent = "het is de datum van de open dag!";
+            }
+        }
+    });
+    </script>
+
+<div id="chat-container">
+    <!-- Chatlog --> 
+    <div id="chat-log"></div> 
+    <!-- Inputveld voor gebruiker --> 
+    <input type="text" id="user-input" placeholder="Schrijf je bericht..."> 
+    <!-- Knop om bericht te versturen -->
+<button onclick="sendMessage()">versturen</button>
+
+</div> 
+<script> 
+// Deze functie wordt aangeroepen wanneer de gebruiker een bericht verstuurt.
+function sendMessage() {
+  // Haal het chat-log element op vanuit het HTML-document.
+  const chatLog = document.getElementById('chat-log');
+  // Haal het user-input veld op vanuit het HTML-document.
+  const userInputField = document.getElementById('user-input');
+  // Haal de tekstwaarde van de gebruiker op en trim eventuele witruimte.
+  const userMessage = userInputField.value.trim();
+
+  // Controleer of de gebruiker daadwerkelijk iets heeft ingevoerd.
+  if (userMessage !== '') {
+    // Maak een nieuw HTML-div element aan voor het gebruikersbericht.
+    const newMessage = document.createElement('div');
+    newMessage.innerHTML = `<strong>You:</strong> ${userMessage}`;
+    // Voeg het gebruikersbericht toe aan het chat-log.
+    chatLog.appendChild(newMessage);
+
+    // Initialiseer de variabele voor het bot-antwoord.
+    let botResponse;
+    // Definieer een reeks trefwoorden waarop de chatbot reageert.
+    const keywords = ["hallo", "gaat", "wanneer", "doei", "wie", "programmeertalen", "project"];
+
+    // Loop door de trefwoorden om overeenkomsten te vinden.
+    for (let i = 0; i < keywords.length; i++) {
+      // Controleer of het gebruikersbericht een trefwoord bevat.
+      if (userMessage.toLowerCase().includes(keywords[i])) {
+        // Bepaal het bot-antwoord op basis van het overeenkomende trefwoord.
+        if (keywords[i] === "programmeertalen") {
+          botResponse = "HTML, CSS, Javascript & PHP.";
+        } else if (keywords[i] === "gaat") {
+          botResponse = "Met mij gaat het goed, bedankt voor het vragen!";
+        } else if (keywords[i] === "wanneer") {
+          botResponse = "Op 26 januari van 15.00 tot 20.00 uur en op 27 januari van 10.00 tot 14.00 uur";
+        } else if (keywords[i] === "doei") {
+          botResponse = "Vaarwel en een fijne dag verder!";
+        } else if (keywords[i] === "project") {
+          botResponse = "Je maakt verschillende projecten voor verschillende codetalen in de eerste periode maak je een portfolio website over jezelf die je maakt in HTML en CSS en in de tweede periode een Javascript";
+        } else if (keywords[i] === "voorbeeld") {
+          botResponse = "Je maakt verschillende projecten voor verschillende codetalen in de eerste periode maak je een portfolio website over jezelf die je maakt in HTML en CSS en in de tweede periode een Javascript";
+        } else if (keywords[i] === "wie") {
+          botResponse = "Ik ben je favoriete chatbot.";
+        } else if (keywords[i] === "hallo") {
+          botResponse = "Hallo, hoe kan ik u helpen!";
+        }
+      }
+    }
+
+    // Als er geen overeenkomend trefwoord is gevonden, geef een standaard antwoord.
+    if (!botResponse) {
+      botResponse = "Ik kan dit niet begrijpen.";
+    }
+
+    // Maak een nieuw HTML-div element aan voor het bot-antwoord.
+    const newBotMessage = document.createElement('div');
+    newBotMessage.innerHTML = `<strong>Bot:</strong> ${botResponse}`;
+    // Voegt het bot-antwoord toe aan het chat-log.
+    chatLog.appendChild(newBotMessage);
+
+    // Maakt het user-input veld leeg nadat het bericht is verstuurd.
+    userInputField.value = '';
+  }
+}
+
+// Voeg een event listener toe aan het user-input veld om de sendMessage-functie aan te roepen wanneer Enter wordt ingedrukt.
+document.getElementById('user-input').addEventListener('keyup', function(event) {
+  if (event.key === 'Enter') {
+    sendMessage();
+  }
+});
+</script> 
+</body> 
+</html>
