@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shiven Website</title>
 
-<link rel="stylesheet" href="stylesheet.css"> <link rel="quiz" href="quizzzz.html">
+<link rel="stylesheet" href="stylesheet.css"> 
 
 
 </head>
@@ -19,45 +19,57 @@
         <img src="logo-techniek-college.png" alt="Logo" class="logo">
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="#about">About me</a></li>
-            <li><a href="#Interview">Interview</a></li>
-            <li><a href="#Projects">Projects</a></li>
+            <li><a href="contacttcr.html">Contact TCR</a></li>
+            <li><a href="#Projects">Talent Tree</a></li>
+            <li><a href="chatbot.html">Chatbot</a></li>
             <li><a href="quizzzz.html">Quizz</a></li>
            
         </ul>
       </nav>
+      <script> // code is van w3schools
+        var uur = new Date().getHours();
+        if (uur >= 18)
+            document.write('Goedenavond');
+        else if (uur >= 12)
+            document.write('Goedemiddag');
+        else if (uur >= 6)
+            document.write('Goedemorgen');
+        else
+            document.write('Goedenacht');
+        </script>
        <div id="header-text">
         
-        <script>
+        
+        <script> // code van chat gpt
           
           var countDownDate = new Date("Jan 26, 2024 16:00:00").getTime();
-          
+          // het datum dat word berekent
           
           var x = setInterval(function() {
-          
+          // dit update de countdown
            
             var now = new Date().getTime();
-              
+              // kijkt naar huidige datum
             
             var distance = countDownDate - now;
-              
+              // berekent hoever de eindatum van nu is
             
             var days = Math.floor(distance / (1000 * 60 * 60 * 24));
             var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-              
+              // berekent de dagen, uren, minuten en seconden
             
             document.getElementById("header-text").innerHTML = days + "d " + hours + "h "
             + minutes + "m " + seconds + "s ";
-              
+              //toont de countdown
             
             if (distance < 0) {
               clearInterval(x);
               document.getElementById("header-text").innerHTML = "over datum swa";
-            }
+            } // kijkt of de einddatum is bereikt
           }, 1000);
-          </script>
+          </script> 
           
          
 
